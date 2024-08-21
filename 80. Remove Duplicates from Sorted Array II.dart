@@ -16,3 +16,24 @@ class Solution {
     return k;
   }
 }
+
+// second way
+
+class Solution {
+    var k = 0;
+    List<int> expectedNums = [];
+  int removeDuplicates(List<int> nums) {
+    List<int> indexs = [];
+    for(int i = 1; i < nums.length - 1; i ++){
+        if((nums[i - 1] == nums[i]) && (nums[i] == nums[i+1])){
+            indexs.add(i + 1);
+        }
+    }
+     indexs = indexs.reversed.toList();
+    for(int a in indexs){
+        nums.removeAt(a);
+    }
+    k = nums.length;
+    return k;      
+    }
+}
